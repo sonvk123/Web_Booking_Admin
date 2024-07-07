@@ -1,0 +1,115 @@
+.InfoBoard_all {
+  padding-right: 30px;
+  margin-bottom: 25px;
+}
+
+.title {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 12px;
+}
+button:hover {
+  cursor: pointer;
+}
+
+.title button {
+  color: green;
+  border: 1px solid green;
+  background-color: white;
+  border-radius: 5px;
+  height: 40px;
+  width: 70px;
+}
+
+.Transaction {
+  margin-top: 24px;
+  padding: 15px;
+  box-shadow: rgba(99, 99, 99, 0.4) 4px 4px;
+}
+
+.Transaction h1 {
+  margin: 0;
+}
+
+.title_items {
+  height: 50px;
+  display: grid;
+  align-items: center;
+  grid-template-columns: 1fr 6fr 7fr 2fr 7fr 3fr 2fr 2fr;
+  border: 2px solid rgba(0, 0, 0, 0.122);
+}
+.item {
+  height: 30px;
+  margin-left: 5px;
+  border-right: 2px solid rgba(0, 0, 0, 0.122);
+  display: flex;
+  align-items: center;
+}
+.title_items_Transaction_all {
+  border: 2px solid rgba(0, 0, 0, 0.122);
+  border-top: none;
+  border-bottom: none;
+}
+
+.title_items_Transaction {
+  display: grid;
+  align-items: center;
+  grid-template-columns: 1fr 6fr 7fr 2fr 7fr 3fr 2fr 2fr;
+  border-bottom: 2px solid rgba(0, 0, 0, 0.122);
+}
+.item_value {
+  padding-left: 8px;
+  height: 50px;
+  display: flex;
+  align-items: center;
+  white-space: nowrap;
+  overflow: hidden;
+}
+
+.item_value p {
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.cach {
+  height: 60px;
+  border: 2px solid rgba(0, 0, 0, 0.122);
+  border-top: none;
+}
+
+.toAndFro {
+  border: 2px solid rgba(0, 0, 0, 0.122);
+  border-top: none;
+
+  display: flex;
+  justify-content: flex-end; /* Đưa tất cả các phần tử về phía bên phải */
+}
+.toAndFro > div {
+  display: flex;
+  gap: 12px;
+  align-items: center;
+  margin-right: 15px;
+}
+
+.toAndFro button {
+  display: flex; /* Cho phép các phần tử con của div chia sẻ hàng */
+  align-items: center; /* Căn giữa theo chiều dọc */
+}
+
+.buttom_delete button {
+  color: red;
+  border: 1px solid red;
+  background-color: white;
+  height: 24px;
+  width: 50px;
+  border-radius: 5px;
+}
+/* .buttom_edit button {
+  color: rgb(255, 0, 0);
+  border: 1px solid yellow;
+  background-color: white;
+  height: 24px;
+  width: 50px;
+  border-radius: 5px;
+} */

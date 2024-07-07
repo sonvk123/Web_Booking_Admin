@@ -1,0 +1,78 @@
+.NewHotel {
+  margin-bottom: 50px;
+}
+
+.title {
+  box-shadow: rgba(99, 99, 99, 0.4) 4px 4px 8px 0px;
+  height: 50px;
+  padding-left: 12px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.title p {
+  font-size: 24px;
+}
+.input_all {
+  padding: 30px;
+  padding-left: 48px;
+  box-shadow: rgba(99, 99, 99, 0.4) 4px 4px 8px 0px;
+}
+
+.top {
+  display: flex;
+  gap: 20%;
+}
+
+.left,
+.right {
+  width: 40%;
+}
+.left > div,
+.right > div {
+  display: flex;
+  flex-direction: column;
+}
+
+.left > div > label,
+.right > div > label {
+margin-top: 34px;
+}
+.left > div > input,
+.right > div > input {
+  border: none;
+  outline: none;
+  border-bottom: 1px solid rgb(0, 0, 0);
+  height: 24px;
+  font-size: 18px;
+}
+
+.left > div > span,
+.right > div > span {
+  margin-top: 10px;
+}
+.right select {
+  width: 55px;
+  height: 24px;
+}
+.bottom {
+  margin-top: 34px;
+}
+
+.Rooms {
+  display: flex;
+  flex-direction: column;
+}
+.Rooms textarea {
+  height: 70px;
+}
+.bottom button {
+  margin-top: 3%;
+  color: white;
+  background-color: rgb(0, 128, 32);
+  height: 34px;
+  width: 100px;
+}
+.error{
+  background-color: rgba(191, 134, 134, 0.266);
+}

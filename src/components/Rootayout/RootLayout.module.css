@@ -1,0 +1,27 @@
+.Sidebar_main {
+  display: grid;
+  grid-template-columns: 1fr 6fr;
+}
+.AdminPage {
+  border-right: 2px solid rgba(0, 0, 0, 0.122);
+  border-bottom: 2px solid rgba(0, 0, 0, 0.122);
+  padding: 10px;
+  height: 50px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.null {
+  border-bottom: 2px solid rgba(0, 0, 0, 0.122);
+}
+.Sidebar {
+  height: 100%;
+  border-right: 2px solid rgba(0, 0, 0, 0.122);
+  padding-right: 15px; /* Để có khoảng cách từ phía bên phải */
+  height: 100%
+}
+
+.main {
+  padding: 15px; /* Để có khoảng cách từ phía bên trái */
+  min-width: none;
+}
