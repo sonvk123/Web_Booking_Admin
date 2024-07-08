@@ -108,7 +108,7 @@ const FormInput = (props) => {
   return (
     <div className={styles.NewHotel}>
       <div className={styles.title}>
-        <p>Add New Product</p>
+        <h1>Edit Hotel</h1>
       </div>
       <div className={styles.input_all}>
         <div className={styles.top}>

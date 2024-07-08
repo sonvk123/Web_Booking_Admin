@@ -14,7 +14,6 @@ const EditRoom = () => {
   const [error_, setError_] = useState(null);
   const [loading_, setLoading_] = useState(true);
 
-  
   let urlBe =
     process.env.REACT_APP_NODE_ENV === "production"
       ? `${process.env.REACT_APP_URL_BE}`
@@ -25,7 +24,7 @@ const EditRoom = () => {
     const data_api = async (id) => {
       try {
         setLoading(true);
-        const res = await fetch(`${urlBe}/admin/getRoomId`, {
+        const res = await fetch(`${urlBe}admin/getRoomId`, {
           method: "POST",
           headers: {
             "Content-Type": "application/json",
@@ -54,7 +53,7 @@ const EditRoom = () => {
   const call_api = async (data_send) => {
     try {
       setLoading_(true);
-      const res = await fetch("http://localhost:5000/admin/postEditRoomId", {
+      const res = await fetch(`${urlBe}admin/postEditRoomId`, {
         method: "POST",
         headers: {
           "Content-Type": "application/json",

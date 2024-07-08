@@ -17,19 +17,19 @@ const FormInput = (props) => {
     price: type === "edit" ? data.price : "",
     maxPeople: type === "edit" ? data.maxPeople : "",
     rooms: type === "edit" ? data.roomNumbers.join("\n") : "",
-    hotelName: "false",
+    hotelId: type === "edit" ? "" : dataNewHotel ? dataNewHotel._id : "",
   });
 
   useEffect(() => {
     if (dataNewHotel) {
       setFormData((prevFormData) => ({
         ...prevFormData,
-        hotelName: "true",
+        hotelId: dataNewHotel._id,
       }));
     }
   }, [dataNewHotel]);
 
-  // kiểm tra xem các input đã đsung đinh dạng hay chưa
+  // kiểm tra xem các input đã đúng định dạng hay chưa
   const [isEmpty, setIsEmpty] = useState({
     title: false,
     description: false,
@@ -49,7 +49,6 @@ const FormInput = (props) => {
 
   const handleChange = (e, field) => {
     const value = e.target.value;
-
     // thay đổi giá trị trong formData
 
     setFormData((prev) => ({
@@ -58,17 +57,11 @@ const FormInput = (props) => {
     }));
 
     // kiểm tra giá trị các input
-    if (field !== "hotelName") {
-      setIsEmpty((prev) => ({
-        ...prev,
-        [field]: value.trim() === "" ? false : true,
-      }));
-    } else if (field === "hotelName") {
-      setIsEmpty((prev) => ({
-        ...prev,
-        [field]: value.trim() === "false" ? false : true,
-      }));
-    }
+
+    setIsEmpty((prev) => ({
+      ...prev,
+      [field]: value.trim() === "" ? false : true,
+    }));
   };
 
   // kiểm tra xem giá trị mặc định có đúng hay không
@@ -79,7 +72,7 @@ const FormInput = (props) => {
       price: formData.price === "" ? false : true,
       maxPeople: formData.maxPeople === "" ? false : true,
       rooms: formData.rooms.trim() === "" ? false : true,
-      hotelName: true,
+      hotelId: formData.hotelId.trim() === "" ? false : true,
     });
   };
 
@@ -95,7 +88,8 @@ const FormInput = (props) => {
       isEmpty.description &&
       isEmpty.price &&
       isEmpty.maxPeople &&
-      isEmpty.rooms
+      isEmpty.rooms &&
+      isEmpty.hotelId
     ) {
       setIsValid(true);
     } else {
@@ -202,7 +196,7 @@ const FormInput = (props) => {
 
               <select
                 value={formData.hotelName}
-                onChange={(e) => handleChange(e, "hotelName")}
+                onChange={(e) => handleChange(e, "hotelId")}
               >
                 {dataNewHotel ? (
                   <option
@@ -216,7 +210,7 @@ const FormInput = (props) => {
                     <option value="false">Mời chọn 1 khách sạn</option>
                     {data.length > 0 &&
                       data.map((value) => (
-                        <option key={value._id} value={String(value._id)}>
+                        <option key={value.id} value={String(value.id)}>
                           {value.name}
                         </option>
                       ))}

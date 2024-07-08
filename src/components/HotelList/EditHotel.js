@@ -14,7 +14,6 @@ const NewHotel = () => {
   const [error_, setError_] = useState(null);
   const [loading_, setLoading_] = useState(true);
 
-  
   let urlBe =
     process.env.REACT_APP_NODE_ENV === "production"
       ? `${process.env.REACT_APP_URL_BE}`
@@ -54,7 +53,7 @@ const NewHotel = () => {
   const call_api = async (data_send) => {
     try {
       setLoading_(true);
-      const res = await fetch("http://localhost:5000/admin/postEditHotelId", {
+      const res = await fetch(`${urlBe}admin/postEditHotelId`, {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
