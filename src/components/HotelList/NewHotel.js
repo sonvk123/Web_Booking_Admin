@@ -37,7 +37,7 @@ const NewHotel = () => {
           `Đã thêm khách sạn thành công. \nBạn có muỗn thêm danh sách Rooms ?`
         );
         if (userResponse) {
-          navigate("/newRoom", { state: { data: data.data } });
+          navigate("/newRoom", { state: { dataNewHotel: data.data } });
         }
         setError(null);
       }

@@ -5,9 +5,8 @@ import styles from "./NewRoom.module.css";
 
 const FormInput = (props) => {
   const location = useLocation();
-  const dataNewHotel = location.state.data || {};
+  const { dataNewHotel } = location.state || {};
 
-  console.log("dataNewHotel:", dataNewHotel);
   const type = props.type;
   const data = props.data;
 
@@ -22,14 +21,13 @@ const FormInput = (props) => {
   });
 
   useEffect(() => {
-
     if (dataNewHotel) {
-      setFormData(prevFormData => ({
+      setFormData((prevFormData) => ({
         ...prevFormData,
-        hotelName: "true"
+        hotelName: "true",
       }));
     }
-  }, [dataNewHotel]); 
+  }, [dataNewHotel]);
 
   // kiểm tra xem các input đã đsung đinh dạng hay chưa
   const [isEmpty, setIsEmpty] = useState({
