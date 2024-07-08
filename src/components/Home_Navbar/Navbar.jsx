@@ -26,6 +26,12 @@ const Navbar = () => {
     setUser(LocalStorage("User"));
   }, [localStorage.getItem("isLogin")]);
 
+  
+  let urlBe =
+    process.env.REACT_APP_NODE_ENV === "production"
+      ? `${process.env.REACT_APP_URL_Admin}`
+      : "http://localhost:3001/";
+
   // Thay thế URL hiện tại bằng URL mới
   const handleRedirect = () => {
     window.location.replace("http://localhost:3001");

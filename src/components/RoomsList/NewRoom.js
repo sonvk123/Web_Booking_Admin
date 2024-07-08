@@ -13,10 +13,16 @@ const NewRoom = () => {
   };
   const { data, error, loading } = useDatas("", url, "get");
 
+  
+  let urlBe =
+    process.env.REACT_APP_NODE_ENV === "production"
+      ? `${process.env.REACT_APP_URL_BE}`
+      : "http://localhost:5000/";
+
   const call_api = async (data_send) => {
     try {
       setLoading(true);
-      const res = await fetch("http://localhost:5000/admin/postAddRoom", {
+      const res = await fetch(`${urlBe}admin/postAddRoom`, {
         method: "POST",
         headers: {
           "Content-Type": "application/json",

@@ -10,10 +10,15 @@ const NewHotel = () => {
   const [error, setError] = useState(null);
   const [loading, setLoading] = useState(true);
 
+  let urlBe =
+    process.env.REACT_APP_NODE_ENV === "production"
+      ? `${process.env.REACT_APP_URL_BE}`
+      : "http://localhost:5000/";
+
   const call_api = async (data_send) => {
     try {
       setLoading(true);
-      const res = await fetch("http://localhost:5000/admin/postAddHotel", {
+      const res = await fetch(`${urlBe}admin/postAddHotel`, {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
@@ -32,7 +37,7 @@ const NewHotel = () => {
           `Đã thêm khách sạn thành công. \nBạn có muỗn thêm danh sách Rooms ?`
         );
         if (userResponse) {
-          navigate("/newRoom", { state: { data:data.data } });
+          navigate("/newRoom", { state: { data: data.data } });
         }
         setError(null);
       }

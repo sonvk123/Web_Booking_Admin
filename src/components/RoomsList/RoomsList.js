@@ -19,8 +19,14 @@ const RoomsList = () => {
 
   const { data, error, loading } = useDatas("", urt, "get");
 
+  
+  let urlBe =
+    process.env.REACT_APP_NODE_ENV === "production"
+      ? `${process.env.REACT_APP_URL_BE}`
+      : "http://localhost:5000/";
+
   const delete_api = async (id) => {
-    const apiUrl = `http://localhost:5000/admin/postDeleteRoom`;
+    const apiUrl = `${urlBe}admin/postDeleteRoom`;
     try {
       const res = await fetch(apiUrl, {
         method: "POST",

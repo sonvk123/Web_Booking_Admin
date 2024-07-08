@@ -8,7 +8,6 @@ import styles from "./HotelList.module.css";
 const HotelList = () => {
   const navigate = useNavigate();
 
-  const [data_, setData] = useState([]);
   const [error_, setError] = useState(null);
   const [loading_, setLoading] = useState(true);
 
@@ -19,8 +18,14 @@ const HotelList = () => {
 
   const { data, error, loading } = useDatas("", url, "get");
 
+  
+  let urlBe =
+    process.env.REACT_APP_NODE_ENV === "production"
+      ? `${process.env.REACT_APP_URL_BE}`
+      : "http://localhost:5000/";
+
   const delete_api = async (id) => {
-    const apiUrl = `http://localhost:5000/admin/postDeleteHotel`;
+    const apiUrl = `${urlBe}admin/postDeleteHotel`;
     try {
       const res = await fetch(apiUrl, {
         method: "POST",

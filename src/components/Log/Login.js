@@ -62,6 +62,12 @@ const Login = () => {
       : setIsValidPassword(false);
   };
 
+  
+  let urlBe =
+    process.env.REACT_APP_NODE_ENV === "production"
+      ? `${process.env.REACT_APP_URL_BE}`
+      : "http://localhost:5000/";
+
   const fetch_Log = async () => {
     const input_register = {
       email: email,
@@ -71,16 +77,13 @@ const Login = () => {
     try {
       setLoading(true);
       setError(null);
-      const response = await fetch(
-        `http://localhost:5000/admin/postAdminLogin`,
-        {
-          method: "POST",
-          headers: {
-            "Content-Type": "application/json",
-          },
-          body: JSON.stringify(input_register), // Gửi dữ liệu data_search dưới dạng JSON
-        }
-      );
+      const response = await fetch(`${urlBe}admin/postAdminLogin`, {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify(input_register), // Gửi dữ liệu data_search dưới dạng JSON
+      });
       if (!response.ok) {
         const data = await response.json();
         throw new Error(data.message);

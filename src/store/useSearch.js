@@ -10,10 +10,14 @@ export const useSearch = (type, url, method, searchData) => {
   });
 
   const fetch_api = async (type, url, method, searchData) => {
+    let urlBe =
+      process.env.REACT_APP_NODE_ENV === "production"
+        ? `${process.env.REACT_APP_URL_BE}`
+        : "http://localhost:5000/";
 
     try {
       const response = await fetch(
-        `http://localhost:5000/search/${url}`,
+        `$${urlBe}search/${url}`,
         method === "post"
           ? {
               method: "POST",

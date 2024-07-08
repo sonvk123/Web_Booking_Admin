@@ -14,12 +14,18 @@ const EditRoom = () => {
   const [error_, setError_] = useState(null);
   const [loading_, setLoading_] = useState(true);
 
+  
+  let urlBe =
+    process.env.REACT_APP_NODE_ENV === "production"
+      ? `${process.env.REACT_APP_URL_BE}`
+      : "http://localhost:5000/";
+
   // gọi api lấy data
   useEffect(() => {
     const data_api = async (id) => {
       try {
         setLoading(true);
-        const res = await fetch(`http://localhost:5000/admin/getRoomId`, {
+        const res = await fetch(`${urlBe}/admin/getRoomId`, {
           method: "POST",
           headers: {
             "Content-Type": "application/json",

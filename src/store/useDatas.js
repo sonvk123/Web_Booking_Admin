@@ -5,9 +5,14 @@ export const useDatas = (type, url, method, searchData) => {
   const [error, setError] = useState(null);
   const [loading, setLoading] = useState(true);
 
+  let urlBe =
+    process.env.REACT_APP_NODE_ENV === "production"
+      ? `${process.env.REACT_APP_URL_BE}`
+      : "http://localhost:5000/";
+
   useEffect(() => {
     const fetch_Log = async () => {
-      const apiUrl = `http://localhost:5000/admin/${url}`;
+      const apiUrl = `${urlBe}admin/${url}`;
       try {
         setLoading(true);
         setError(null);
